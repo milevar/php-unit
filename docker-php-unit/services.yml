@@ -1,0 +1,10 @@
+version: '2'
+services:
+  php-unit:
+    extends:
+      file: php-unit.yml
+      service: php-unit
+  laravel:
+    extends:
+      file: laravel.yml
+      service: laravel
