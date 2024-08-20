@@ -4,7 +4,7 @@ namespace Fixtures;
 
 use PHPUnit\Framework\TestCase;
 use PHPUnit\Framework\Attributes\Test;
-use src\ShopingCart;
+use ShopingCart;
 
 class ShopingCartTest extends TestCase
 {

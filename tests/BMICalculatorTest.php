@@ -1,10 +1,12 @@
 <?php
 
+use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\TestCase;
 
+#[CoversNothing]
 class BMICalculatorTest extends TestCase {
 
-    public function testBMICalculate() {
+    public function testBMICalculate(): void {
         $BMICalculator = new BMICalculator();
         $BMICalculator->mass = 85;
         $BMICalculator->height = 1.55;
@@ -13,7 +15,7 @@ class BMICalculatorTest extends TestCase {
         $this->assertEquals($expected, $result);
     }
 
-    public function testUnderWeightBMITextResult() {
+    public function testUnderWeightBMITextResult(): void {
         $BMICalculator = new BMICalculator();
         $BMICalculator->BMI = 10;
         $result = $BMICalculator->getTextResultFromBMI();
@@ -21,7 +23,7 @@ class BMICalculatorTest extends TestCase {
         $this->assertSame($expected, $result);
     }
 
-    public function testNormalWeightBMITextResult() {
+   public function testNormalWeightBMITextResult(): void {
         $BMICalculator = new BMICalculator();
         $BMICalculator->BMI = 24;
         $result = $BMICalculator->getTextResultFromBMI();
@@ -29,7 +31,7 @@ class BMICalculatorTest extends TestCase {
         $this->assertSame($expected, $result);
     }
 
-    public function testOverWeightBMITextResult() {
+    public function testOverWeightBMITextResult(): void {
         $BMICalculator = new BMICalculator();
         $BMICalculator->BMI = 38;
         $result = $BMICalculator->getTextResultFromBMI();
