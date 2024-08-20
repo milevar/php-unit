@@ -26,6 +26,14 @@ $ docker run --rm --interactive --tty \
   composer install
 ```
 
+### Update
+
+```shell
+$ docker run --rm --interactive --tty \
+  --volume $PWD:/app \
+  composer update
+```
+
 ## PHP Unit
 
 ### Get Version
@@ -42,11 +50,27 @@ docker run -it --rm --name php-unit \
   ./vendor/bin/phpunit --version
 ```
 
+### Generate Configuration for php unit
+
+```shell
+docker run -it --rm --name php-unit \
+  --volume $PWD:/usr/src/myapp -w /usr/src/myapp \
+  php:8 \
+  ./vendor/bin/phpunit --generate-configuration
+```
 ### Run Test
 
 ```shell
 docker run -it --rm --name php-unit \
   --volume $PWD:/usr/src/myapp -w /usr/src/myapp \
   php:8 \
-  ./vendor/bin/phpunit src/test/HelloWorldTest.php
+  ./vendor/bin/phpunit tests/BMICalculatorTest.php --color --testdox
+```
+
+### Composer dump autoload
+
+```shell
+docker run --rm --interactive --tty \
+  --volume $PWD:/app \
+  composer dump-autoload -o
 ```
