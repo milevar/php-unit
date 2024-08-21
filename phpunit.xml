@@ -9,12 +9,25 @@
          beStrictAboutCoverageMetadata="true"
          beStrictAboutOutputDuringTests="true"
          failOnRisky="true"
-         failOnWarning="true">
+         failOnWarning="true"
+         colors="true"
+         testdox="true">
     <testsuites>
         <testsuite name="default">
             <directory>tests</directory>
         </testsuite>
+        <testsuite name="BMI">
+            <directory>tests/BMICalculatorTest.php</directory>
+        </testsuite>
+        <testsuite name="Fixtures">
+            <directory>tests/Fixtures</directory>
+        </testsuite>
     </testsuites>
+
+    <php>
+        <const name="BASEURL" value="http://localhost:8000" />
+        <const name="HOST" value="127.0.0.1" />
+    </php>
 
     <source ignoreIndirectDeprecations="true" restrictNotices="true" restrictWarnings="true">
         <include>

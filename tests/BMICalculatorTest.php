@@ -37,6 +37,7 @@ class BMICalculatorTest extends TestCase {
         $result = $BMICalculator->getTextResultFromBMI();
         $expected = 'Overweight';
         $this->assertSame($expected, $result);
+        $this->assertEquals(BASEURL, 'http://localhost:8000');
     }
 
 }
