@@ -64,7 +64,7 @@ docker run -it --rm --name php-unit \
 docker run -it --rm --name php-unit \
   --volume $PWD:/usr/src/myapp -w /usr/src/myapp \
   php:8 \
-  ./vendor/bin/phpunit --testsuite Fixtures
+  ./vendor/bin/phpunit tests/ProductTest.php
 ```
 
 ### Composer dump autoload
