@@ -1,6 +1,12 @@
 <?php
 
-class Product {
+class Product extends ProductAbstract {
+
+    protected  $addLoggerCallable = [Logger::class, 'log'];
+
+    public function setLoggerCallable($callable) {
+        $this->addLoggerCallable = $callable;
+    }
 
     public function __construct(SessionInterface $session) {
         $this->session = $session;
@@ -10,6 +16,10 @@ class Product {
         // call the database to fetch the product
         $product = "Product 1";
         $this->session->write($product);
+
+        //Logger::log($product);
+        call_user_func($this->addLoggerCallable, $product);
+
         return $product;
     }
 }

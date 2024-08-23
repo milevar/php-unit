@@ -16,11 +16,25 @@ class ProductTest extends TestCase {
            public function write($product) {
                echo "mocked writing ... " . $product;
            }
-
-
        };
 
        $product = new Product($session);
+
+       $product->setLoggerCallable(function () {
+           echo "Real logger was not callable !!";
+       });
+
        $this->assertSame('Product 1', $product->fetchProductById(1));
+   }
+
+   public function testRiskyOption() {
+//       $this->markTestIncomplete("Not implemented yet.");
+
+//       if (!extension_loaded('xdebug')) {
+//           $this->markTestSkipped("Xdebug extension is not available.");
+//       }
+
+       $this->assertTrue(true);
+
    }
 }

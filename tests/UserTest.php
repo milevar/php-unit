@@ -6,6 +6,7 @@ use PHPUnit\Framework\Attributes\CoversNothing;
 
 #[CoversNothing]
 class UserTest extends TestCase {
+    use CustomAssertionTrait;
     public function testValidUserNameUsingClosure(): void {
 
         $user = new User('donald', 'Trump');
@@ -70,6 +71,16 @@ class UserTest extends TestCase {
         };
 
         $this->assertSame('Password Hashed!!', $user->getHashedPassword());
+    }
 
+    public function testCustomDataStructure(): void {
+
+        $data = [
+            "nick" => "Dolar",
+            "email" => "donald@trump.com",
+            "age" => 70,
+        ];
+
+        $this->assertArrayData($data);
     }
 }
